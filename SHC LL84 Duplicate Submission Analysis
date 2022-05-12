@@ -19,6 +19,10 @@ print (Submission_Data.head())
 print(Submission_Data.info())
 print (Submission_Data.nunique())
 
+#separating out submissions that have missing BBLs
+Missing_BBL = Submission_Data[Submission_Data['Cleaned BBL'] == "NotAvailable"]
+Submission_Data = Submission_Data[Submission_Data['Cleaned BBL'] != "NotAvailable"]
+
 #separating individual properties and printing info on the data for a quick manual check
 Individual_Props = Submission_Data[Submission_Data['Parent Property ID'] == "Not Applicable: Standalone Property"]
 print(Individual_Props.head())
